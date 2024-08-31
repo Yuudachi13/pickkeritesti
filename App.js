@@ -1,11 +1,13 @@
-import { StatusBar } from 'expo-status-bar';
+import { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import AndroidPicker from './components/anroidPicker';
 
 export default function App() {
+  const [month, setSelectedMonth] = useState(String(new Date().getMonth() + 1))
+
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+      <AndroidPicker month={month} setSelectedMonth={setSelectedMonth}/>
     </View>
   );
 }
@@ -17,4 +19,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  picker: {
+    width: '100%'
+  },
+  item: {
+    fontSize: 16
+  }
 });
